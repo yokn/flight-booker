@@ -12,3 +12,10 @@ Airport.create!([
                   { code: 'LAX' },
                   { code: 'DFW' }
                 ])
+
+Flight.create!([
+                 { from_airport: Airport.find_by_id(1), to_airport: Airport.find_by_id(2),
+                   datetime: '2021-02-14 09:00:00', duration: 320 },
+                 { from_airport: Airport.find_by_id(3), to_airport: Airport.find_by_id(4),
+                   datetime: '2021-05-16 08:00:00', duration: 200 }
+               ])
