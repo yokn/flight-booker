@@ -25,6 +25,6 @@
     </div>
   </div>
 <% end %>
-<%= (render "search_results") if @available_flights%>
+<%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
 <br>
 <%= link_to 'New Flight', new_flight_path %>
