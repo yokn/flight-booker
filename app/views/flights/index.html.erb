@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="control">
-    <%# <%= select_month(Date.today) %>
+    <%= select_date(Time.current) %>
     <%# <%= f.select(:datetime, @datetime_options) %>
   </div>
   <div class=control>
@@ -27,4 +27,3 @@
 <% end %>
 <%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
 <br>
-<%= link_to 'New Flight', new_flight_path %>

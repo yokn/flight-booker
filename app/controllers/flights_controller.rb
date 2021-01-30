@@ -3,12 +3,20 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
+    if params[:date]
+      @date = Date.parse(
+        "#{params[:date]['day']}-#{params[:date]['month']}-#{params[:date]['year']}"
+      )
+    end
+
     @flights = Flight.all
 
     @airport_options = Airport.all.map { |airport| [airport.code] }
     # @datetime_options = Flight.all.map { |flight| [flight.datetime] }
     @available_flights = @flights.select do |flight|
-      (flight.from_airport.code == params[:from_airport]) && (flight.to_airport.code == params[:to_airport])
+      (flight.from_airport.code == params[:from_airport]) &&
+        (flight.to_airport.code == params[:to_airport]) &&
+        flight.date >= @date
     end
   end
 
