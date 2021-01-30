@@ -7,6 +7,7 @@ class CreateFlights < ActiveRecord::Migration[6.1]
       t.date :date, null: false
       t.time :time, null: false
       t.integer :duration, null: false
+      t.integer :vacant_seats, null: false
 
       t.timestamps
     end

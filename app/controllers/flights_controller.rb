@@ -16,7 +16,8 @@ class FlightsController < ApplicationController
     @available_flights = @flights.select do |flight|
       (flight.from_airport.code == params[:from_airport]) &&
         (flight.to_airport.code == params[:to_airport]) &&
-        flight.date >= @date
+        flight.date >= @date &&
+        flight.vacant_seats >= params[:num_tickets].to_i
     end
   end
 

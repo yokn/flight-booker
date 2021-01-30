@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2021_01_28_095954) do
     t.date "date", null: false
     t.time "time", null: false
     t.integer "duration", null: false
+    t.integer "vacant_seats", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["from_airport_id"], name: "index_flights_on_from_airport_id"

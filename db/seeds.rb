@@ -15,7 +15,7 @@ Airport.create!([
 
 Flight.create!([
                  { from_airport: Airport.find_by_id(1), to_airport: Airport.find_by_id(2),
-                   date: '2021-02-14', time: ' 09:00:00', duration: 320 },
+                   date: '2021-02-14', time: ' 09:00:00', duration: 320, vacant_seats: 14 },
                  { from_airport: Airport.find_by_id(3), to_airport: Airport.find_by_id(4),
-                   date: '2021-05-16', time: ' 08:00:00', duration: 200 }
+                   date: '2021-05-16', time: ' 08:00:00', duration: 200, vacant_seats: 3 }
                ])
