@@ -15,9 +15,12 @@
       <%= f.number_field :passengers %>
     </div>
   </div>
-  <div class="control">
-    <%= select_date(Time.current) %>
-    <%# <%= f.select(:datetime, @datetime_options) %>
+  <div class="container">
+    <label class="date">From: </label>
+    <div class="control">
+      <%= select_date(Time.current) %>
+      <%# <%= f.select(:datetime, @datetime_options) %>
+    </div>
   </div>
   <div class=control>
     <div class="actions">
