@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An application that lets users select two airports, the date, and the passenger count in order to list the available flights matching those criteria. After the search results are returned, users may book a flight by selecting it and providing other necessary information.
 
-Things you may want to cover:
+## Technology used: 
 
-* Ruby version
+### Back-end: 
+* Ruby 3.0.0
 
-* System dependencies
+* Rails 6.1.1
 
-* Configuration
+* PostgreSQL
 
-* Database creation
+### Front-end:
+* Bulma soontm
 
-* Database initialization
+### Deployment:
+* Heroku 20 soontm
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+## screenshots
 
 * ...
