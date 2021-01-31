@@ -1,32 +1,35 @@
 <p id="notice"><%= notice %></p>
-<%= form_with(url: flights_path, local:true, method: :get) do |f| %>
-  <div class=container style="display:flex">
+<section class="section" style="padding-bottom:3px">
+  <%= form_with(url: flights_path, local:true, method: :get) do |f| %>
+    <div class=container style="display:flex">
+      <div class=control>
+        <%= f.select(:from_airport, @airport_options) %>
+      </div>
+      ->
+      <div class=control>
+        <%= f.select(:to_airport, @airport_options) %>
+      </div>
+    </div>
+    <label class="label">Passengers:</label>
+    <div class=field>
+      <div class="control">
+        <%= f.number_field :num_tickets, value:1 %>
+      </div>
+    </div>
+    <div class="container">
+      <label class="date">From: </label>
+      <div class="control">
+        <%= select_date(Time.current) %>
+        <%# <%= f.select(:datetime, @datetime_options) %>
+      </div>
+    </div>
     <div class=control>
-      <%= f.select(:from_airport, @airport_options) %>
+      <div class="actions">
+        <%= f.submit "Search" %>
+      </div>
     </div>
-    ->
-    <div class=control>
-      <%= f.select(:to_airport, @airport_options) %>
-    </div>
-  </div>
-  <label class="label">Passengers:</label>
-  <div class=field>
-    <div class="control">
-      <%= f.number_field :num_tickets, value:1 %>
-    </div>
-  </div>
-  <div class="container">
-    <label class="date">From: </label>
-    <div class="control">
-      <%= select_date(Time.current) %>
-      <%# <%= f.select(:datetime, @datetime_options) %>
-    </div>
-  </div>
-  <div class=control>
-    <div class="actions">
-      <%= f.submit "Search" %>
-    </div>
-  </div>
-<% end %>
-<%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
-<br>
+  <% end %>
+</section>
+<section class="section" style="padding-top:3px">
+  <%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
+</section>
