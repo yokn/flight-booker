@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
-<section class="section" style="padding-bottom:3px">
+<section class="section pb-1">
   <%= form_with(url: flights_path, local:true, method: :get) do |f| %>
-    <div class=control style="display:flex">
-      <div class=field>
-        <div class=control>
+    <div class="control is-flex">
+      <div class="field">
+        <div class="control">
           <%= f.select(:from_airport, @airport_options) %>
         </div>
       </div>
       ->
-      <div class=field>
+      <div class="field">
         <div class=control>
           <%= f.select(:to_airport, @airport_options) %>
         </div>
       </div>
     </div>
     <label class="label">Passengers:</label>
-    <div class=field>
+    <div class="field">
       <div class="control">
         <%= f.number_field :num_tickets, value:1 %>
       </div>
@@ -27,13 +27,13 @@
         <%# <%= f.select(:datetime, @datetime_options) %>
       </div>
     </div>
-    <div class=control>
+    <div class="control">
       <div class="actions">
         <%= f.submit "Search" %>
       </div>
     </div>
   <% end %>
 </section>
-<section class="section" style="padding-top:3px">
+<section class="section pt-1">
   <%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
 </section>
