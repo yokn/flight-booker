@@ -12,7 +12,7 @@ An application that lets users select two airports, the date, and the passenger 
 * PostgreSQL
 
 ### Front-end:
-* Bulma soontm
+* Bulma
 
 ### Deployment:
 * Heroku 20 soontm
