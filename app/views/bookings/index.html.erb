@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Flight</th>
-      <th>Passenger</th>
+      <th>Passenger id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,9 +12,11 @@
     <% @bookings.each do |booking| %>
       <tr>
         <td><%= booking.flight_id %></td>
-        <td><%= booking.passenger_id %></td>
-        <td><%= booking.passenger.name %></td>
-        <td><%= booking.passenger.email %></td>
+        <% booking.passengers.each do |passenger|%>
+          <td><%= passenger.id %></td>
+          <td><%= passenger.name %></td>
+          <td><%= passenger.email %></td>
+        <% end %>
         <td><%= booking.flight.from_airport.code %></td>
         <td><%= booking.flight.to_airport.code %></td>
         <td><%= booking.flight.date %></td>
