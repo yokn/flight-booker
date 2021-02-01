@@ -2,7 +2,6 @@
   <% if booking.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-
       <ul>
         <% booking.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,17 +9,14 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= form.label :flight_id_id %>
-    <%= form.text_field :flight_id_id %>
+    <%= form.label :flight_id %>
+    <%= form.text_field :flight_id %>
   </div>
-
   <div class="field">
-    <%= form.label :passenger_id_id %>
-    <%= form.text_field :passenger_id_id %>
+    <%= form.label :passenger_id %>
+    <%= form.text_field :passenger_id %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>

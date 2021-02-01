@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
-
 <h1>Bookings</h1>
-
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Flight</th>
@@ -10,12 +8,18 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @bookings.each do |booking| %>
       <tr>
-        <td><%= booking.flight_id_id %></td>
-        <td><%= booking.passenger_id_id %></td>
+        <td><%= booking.flight_id %></td>
+        <td><%= booking.passenger_id %></td>
+        <td><%= booking.passenger.name %></td>
+        <td><%= booking.passenger.email %></td>
+        <td><%= booking.flight.from_airport.code %></td>
+        <td><%= booking.flight.to_airport.code %></td>
+        <td><%= booking.flight.date %></td>
+        <td><%= booking.flight.duration %></td>
+        <td><%= booking.flight.vacant_seats %></td>
         <td><%= link_to 'Show', booking %></td>
         <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
         <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -23,7 +27,4 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
-<%= link_to 'New Booking', new_booking_path %>

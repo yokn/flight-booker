@@ -1,7 +1,8 @@
 <h1 class="subtitle mb-1">Available Flights</h1>
-<%= form_with(url: nil, local:true, method: :get) do |f| %>
+<%= form_with(url: new_booking_path, local:true, method: :get) do |f| %>
   <% @available_flights.each do |flight| %>
     <div class="row">
+      <%= hidden_field_tag 'flight_id', flight.id  %>
       <%= f.radio_button :selection, false%>
       <%= flight.from_airport.code %>
       ->
@@ -11,6 +12,7 @@
       <%= flight.vacant_seats %> seats left
     </div>
   <% end %>
+  <%= hidden_field_tag 'num_tickets', params[:num_tickets]  %>
   <div class="control">
     <%= f.submit "Proceed"%>
   </div>
