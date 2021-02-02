@@ -4,8 +4,12 @@
   <%= @booking.flight_id %>
 </p>
 <p>
-  <strong>Passenger:</strong>
-  <%= @booking.passenger_id %>
+  <strong>Passengers:</strong>
+  <% @booking.passengers.each do |passenger|%>
+    <td><%= passenger.id %></td>
+    <td><%= passenger.name %></td>
+    <td><%= passenger.email %></td>
+  <% end %>
 </p>
 <%= link_to 'Edit', edit_booking_path(@booking) %> |
 <%= link_to 'Back', bookings_path %>
