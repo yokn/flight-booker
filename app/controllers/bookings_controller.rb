@@ -25,6 +25,8 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
+        # Tell the UserMailer to send a welcome email after save
+        PassengerMailer.with(users: @booking.passengers.to_a).thank_you_email.deliver_later
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
         format.json { render :show, status: :created, location: @booking }
       else
