@@ -1,51 +1,58 @@
 <%= form_with(url: flights_path, local:true, method: :get) do |f| %>
-  <section class="hero is-primary pb-1">
+  <section class="hero is-primary is-fullheight pb-1">
     <div class="hero-body">
-      <div class="columns is-centered">
-        <div class="box">
-          <p id="notice"><%= notice %></p>
-          <div>
-            <div style="display:flex;justify-content:space-between">
-              <label class="label">Origin</label>
-              <label class="label">Destination</label>
-            </div>
-            <div class="control" style="display:flex;justify-content:space-between">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+            <div class="box">
+              <p id="notice"><%= notice %></p>
+              <div>
+                <div style="display:flex;justify-content:space-between">
+                  <label class="label">Origin</label>
+                  <label class="label">Destination</label>
+                </div>
+                <div class="control" style="display:flex;justify-content:space-between">
+                  <div class="field">
+                    <div class="control">
+                      <%= f.select(:from_airport, @airport_options) %>
+                    </div>
+                  </div>
+                  <i class="fas fa-arrow-right"></i>
+                  <div class="field">
+                    <div class=control>
+                      <%= f.select(:to_airport, @airport_options) %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <label class="label">Passengers</label>
               <div class="field">
                 <div class="control">
-                  <%= f.select(:from_airport, @airport_options) %>
+                  <%= f.number_field :num_tickets, value:1, min:1 %>
                 </div>
               </div>
-              <i class="fas fa-arrow-right"></i>
               <div class="field">
-                <div class=control>
-                  <%= f.select(:to_airport, @airport_options) %>
+                <label class="label">Starting from </label>
+                <div class="control">
+                  <%= select_date(Time.current) %>
+                  <%# <%= f.select(:datetime, @datetime_options) %>
                 </div>
               </div>
-            </div>
-          </div>
-          <label class="label">Passengers</label>
-          <div class="field">
-            <div class="control">
-              <%= f.number_field :num_tickets, value:1, min:1 %>
-            </div>
-          </div>
-          <div class="field">
-            <label class="label">Starting from </label>
-            <div class="control">
-              <%= select_date(Time.current) %>
-              <%# <%= f.select(:datetime, @datetime_options) %>
-            </div>
-          </div>
-          <div class="control">
-            <div class="actions">
-              <%= f.submit "Search" %>
+              <div class="control">
+                <div class="actions">
+                  <%= f.submit "Search" %>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   <% end %>
-</section>
-<section class="section pt-1">
-  <%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
+  <div class="container">
+    <div class="box">
+      <label class="label mb-1">Available Flights</label>
+      <%= (@available_flights.empty?) ? ("No flights matched your criteria") : (render "search_results") %>
+    </div>
+  </div>
 </section>
